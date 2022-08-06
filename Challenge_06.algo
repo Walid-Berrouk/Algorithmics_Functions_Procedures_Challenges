@@ -1,0 +1,39 @@
+ALGORITHM Shifting
+VAR
+    arr : ARRAY_OF INTEGER[50]
+    len, i : INTEGER
+
+PROCEDURE shiftingModule(VAR tab : ARRAY_OF INTEGER[50];)
+VAR
+    i, tmp : INTEGER
+
+BEGIN
+    tmp := tab[1];
+    FOR i FROM 2 TO tab.length STEP 1  DO
+        tab[i-1] := tab[i];
+    END_FOR
+    tab[tab.length]  := tmp;
+END
+
+BEGIN
+
+    // Reading The Arrays Value
+    Write("Give me the array length");
+    Read(len);
+    WHILE (len > 50) DO
+        Write("Give me a Correct Array length !");
+        Read(len);
+    END_WHILE
+
+    FOR i FROM 1 TO len STEP 1  DO
+        Read(arr[i]);
+    END_FOR
+
+    shiftingModule(arr);
+
+     // Write the Ouput
+    FOR i FROM 1 TO arr.length STEP 1  DO
+        Write(arr[i]);
+    END_FOR
+
+END
